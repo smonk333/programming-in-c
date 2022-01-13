@@ -1,0 +1,21 @@
+1. (See attached program_2-1.c through program_2-6.c)
+
+2. (See attached exercise2.c)
+
+3. Testing.......1...2..3
+
+4. (See attached exercise4.c)
+
+5. Syntax errors: 
+
+line 2, (void) is capitalized.
+line 3, parenthesis is used rather than a curly brace
+line 4, int is capitalized
+line 5, a block comment is started, never closed, rather than a line comment
+line 6, is a comment, doesn't end in a semicolon
+line 7, block comment is started again, never closed, line ends in a line comment
+line 8, needs a comma between ("The answer is %i\n" and sum)
+
+(See attached exercise5.c)
+
+6. The result is 95
