@@ -10,5 +10,11 @@ int main(void)
 
 	printf("integerVar = %i\n", integerVar);
 	printf("floatingVar = %f\n", floatingVar);
-	printf("doubleVar = ")
+	printf("doubleVar = %e\n", doubleVar);
+	printf("doubleVar = %g\n", doubleVar);
+	printf("charVar = %c\n", charVar);
+
+	printf("boolVar = %i\n", boolVar);
+
+	return 0;
 }
