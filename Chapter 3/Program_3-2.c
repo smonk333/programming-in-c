@@ -4,11 +4,7 @@ int main(void)
 	 /////////////////////////
 	// Declaring Variables //
    /////////////////////////
-	int a, b, c, d, result;
-	a = 100;
-	b = 2;
-	c = 25;
-	d = 4;
+	int a = 100, b = 2, c = 25, d = 4, result;
 
 	result = a - b; 	//subtraction
 	printf ("a - b = %i\n", result);
