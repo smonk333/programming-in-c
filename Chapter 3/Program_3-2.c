@@ -1,7 +1,6 @@
 #include <stdio.h>
 int main(void)
 {
-
 	 /////////////////////////
 	// Declaring Variables //
    /////////////////////////
@@ -26,6 +25,4 @@ int main(void)
 	printf ("a * b + c * d = %i\n", a * b + c * d);
 
 	return 0;
-
-
 }
