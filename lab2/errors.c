@@ -8,7 +8,7 @@ int main(void)
 
 //assign values to the variables
 	moe = 5;
-  joe = 9;
+	joe = 9;
 	larry = 21;
 	curly = 53;
 
