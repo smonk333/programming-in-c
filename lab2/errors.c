@@ -13,7 +13,7 @@ int main(void)
 	curly = 53;
 
 //add moe, joe, larry and curly to get shemp
-	shemp = moe + joe + curly +larry;
+	shemp = moe + joe + curly + larry;
 
 // print the results to the terminal 
 printf("moe : %i\njoe : %i\nlarry : %i\ncurly : %i\n", moe, joe, larry, curly);
