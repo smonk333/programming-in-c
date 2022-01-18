@@ -6,8 +6,7 @@ int main(void)
   ////////////////////////////
 	const int fat = 9, protein = 4, carbohydrates = 4, alcohol = 7;
 
-	int fatGr, proGr, carGr, alcGr;
-	double fatPe, proPe, carPe, alcPe;
+	int fatGr, proGr, carGr, alcGr, fatPe, proPe, carPe, alcPe;
 
 	printf("Enter fat grams: ");
 	scanf("%i", &fatGr);
@@ -22,10 +21,10 @@ int main(void)
 	scanf("%i", &alcGr);
 
 	//calculations
-	fatPe = (double)fat * fatGr;
-	proPe = (double)protein * proGr;
-	carPe = (double)carbohydrates * carGr;
-	alcPe = (double)alcohol * alcGr;
+	fatPe = fat * fatGr;
+	proPe = protein * proGr;
+	carPe = carbohydrates * carGr;
+	alcPe = alcohol * alcGr;
 
 	printf("%i, %i, %i, %i", fatPe, proPe, carPe, alcPe);
 	return 0;
