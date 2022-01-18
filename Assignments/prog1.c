@@ -1,9 +1,9 @@
 #include<stdio.h>
 int main(void)
 {
-	////////////////////////////
-   // initializing constants //
-  ////////////////////////////
+	   ////////////////////////////
+      // initializing constants //
+     ////////////////////////////
 	const int fat = 9, protein = 4, carbohydrates = 4, alcohol = 7;
 
 	int fatGr, proGr, carGr, alcGr, fatPe, proPe, carPe, alcPe;
