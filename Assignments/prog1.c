@@ -21,6 +21,10 @@ int main(void)
 	scanf("%i", &alcGram);
 
 	// calculations //
+
+	// (yes i know i reused the *Gram variables here, //
+	// i just really didn't want to initialize even more variables) //
+	
 	fatGram *= fat;
 	proGram *= protein;
 	carGram *= carbohydrates;
@@ -28,12 +32,12 @@ int main(void)
 
 	totPerc = fatGram + proGram + carGram + alcGram;
 
-	fatPerc = (fatGram * 100.0) / totPerc;
-	proPerc = (proGram * 100.0) / totPerc;
-	carPerc = (carGram * 100.0) / totPerc;
-	alcPerc = (alcGram * 100.0) / totPerc;
+	fatPerc = (fatGram * 100.0f) / totPerc;
+	proPerc = (proGram * 100.0f) / totPerc;
+	carPerc = (carGram * 100.0f) / totPerc;
+	alcPerc = (alcGram * 100.0f) / totPerc;
 
-
-	printf("%.2f, %.2f, %.2f, %.2f", fatPerc, proPerc, carPerc, alcPerc);
+	printf("%i, %i, %i, %i\n\n", fatGram, proGram, carGram, alcGram);
+	printf("%.1f, %.1f, %.1f, %.1f", fatPerc, proPerc, carPerc, alcPerc);
 	return 0;
 }
