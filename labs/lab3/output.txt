@@ -1,0 +1,7 @@
+
+Number of sides: Radius (in): 
+
+Angle is 1.26 radians (72.0 degrees)
+Side is 5.88 inches
+Perimeter is 29.39 inches or 2.45 feet.
+
