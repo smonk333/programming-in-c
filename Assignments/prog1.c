@@ -1,14 +1,13 @@
 #include<stdio.h>
-#include<math.h>
 int main(void)
 {
-      // initializing constants //
+    // initializing constants //
 	const int fat = 9, protein = 4, carbohydrates = 4, alcohol = 7;
+    // initializing variables //
+	int fatGram, proGram, carGram, alcGram, fatCalo, proCalo, carCalo, alcCalo;
+	float fatPerc, proPerc, carPerc, alcPerc, totCalo, totPerc;
 
-	int fatGram, proGram, carGram, alcGram;
-	float fatPerc, proPerc, carPerc, alcPerc, totPerc;
-
-	printf("Enter fat grams: ");
+	printf("\nEnter fat grams: ");
 	scanf("%i", &fatGram);
 
 	printf("Enter protein grams: ");
@@ -21,23 +20,33 @@ int main(void)
 	scanf("%i", &alcGram);
 
 	// calculations //
-
-	// (yes i know i reused the *Gram variables here, //
-	// i just really didn't want to initialize even more variables) //
 	
-	fatGram *= fat;
-	proGram *= protein;
-	carGram *= carbohydrates;
-	alcGram *= alcohol;
+	fatCalo = fatGram * fat;
+	proCalo = proGram * protein;
+	carCalo = carGram * carbohydrates;
+	alcCalo = alcGram * alcohol;
 
-	totPerc = fatGram + proGram + carGram + alcGram;
+	totCalo = fatCalo + proCalo + carCalo + alcCalo;
 
-	fatPerc = (fatGram * 100.0f) / totPerc;
-	proPerc = (proGram * 100.0f) / totPerc;
-	carPerc = (carGram * 100.0f) / totPerc;
-	alcPerc = (alcGram * 100.0f) / totPerc;
+	fatPerc = (fatCalo * 100) / totCalo;
+	proPerc = (proCalo * 100) / totCalo;
+	carPerc = (carCalo * 100) / totCalo;
+	alcPerc = (alcCalo * 100) / totCalo;
 
-	printf("%i, %i, %i, %i\n\n", fatGram, proGram, carGram, alcGram);
-	printf("%.1f, %.1f, %.1f, %.1f", fatPerc, proPerc, carPerc, alcPerc);
+	totPerc = fatPerc + proPerc + carPerc + alcPerc;
+
+	// printf("%i, %i, %i, %i\n\n", fatGram, proGram, carGram, alcGram);
+	// printf("%.1f, %.1f, %.1f, %.1f\n\n", fatPerc, proPerc, carPerc, alcPerc);
+	// uncomment the lines above to test the output of the calculations //
+
+	// Print everything //
+
+	printf("%40s\n", "Grams Calories Percent");
+	printf("Fat: %18i %8i %7.1f\n", fatGram, fatCalo, fatPerc);
+	printf("Protein: %14i %8i %7.1f\n", proGram, proCalo, proPerc);
+	printf("Carbohydrates: %8i %8i %7.1f\n", carGram, carCalo, carPerc);
+	printf("Alcohol: %14i %8i %7.1f\n\n", alcGram, alcCalo, alcPerc);
+	printf("TOTAL: %25i %7.1f\n", (int)totCalo, totPerc);
+
 	return 0;
 }
