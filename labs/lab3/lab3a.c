@@ -33,7 +33,7 @@ int main(void)
 
     // printing results of calculations //
 
-    printf("Number of sides: %i\nRadius: %i\n\n", noSides, radius);
+    printf("Number of sides: %i\nRadius (in): %i\n\n", noSides, radius);
     printf("Angle is %.2f radians (%.1f degrees)\n", angleRad, angleDeg);
     printf("Side is %.2f inches\n", sidec);
     printf("Perimeter is %.2f inches or %.2f feet.\n", periIn, periFt);
