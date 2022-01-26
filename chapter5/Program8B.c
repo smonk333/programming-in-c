@@ -1,4 +1,4 @@
-// program to evaluate simple expressions of the form number operator number //
+// program to evaluate simple expressions of the form number operator number (revised) //
 #include<stdio.h>
 
 int main(void)
@@ -16,7 +16,13 @@ int main(void)
 	else if(operator == '*')
 		printf("%.2f\n", val1 * val2);
 	else if(operator == '/')
-		printf("%.2f\n", val1 / val2);
+		if(val2 == 0)
+			printf("Division by zero.\n");
+		else
+			printf("%.2f\n", val1 / val2);
+	else
+		printf("Unknown operator.\n");
+
 
 	return 0;
 }
