@@ -1,5 +1,0 @@
-1. (See Program_3-1 through 3-5)
-
-2. char (is a variable type), 6_05 (begins with a number), A$ (contains a special character), _1312 (contains digits)
-
-3.
