@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main(void)
 {
-	int input, test, yesNo, inputType;
+	int input, test, yesNo = 0, inputType;
 	char charInput, charOutput;
 	/* inputType is used to determine how to print the output.
 	   setting it to 1 means the output will be printed as "even" or "odd",
@@ -11,12 +11,9 @@ int main(void)
 	   while loop should run again.
 	*/
 
-	yesNo = 1;
-
-	while(yesNo = 1) {
+	do {
 		printf("\nEnter a letter or number from the keyboard: ");
-		scanf("%i", &input);
-		charInput = (char) input;
+		scanf("%c", &charInput);
 		if(charInput >= 48 && charInput <= 57)
 			inputType = 1; // input was a number
 		else if(charInput >= 65 && charInput <= 90)
@@ -28,7 +25,7 @@ int main(void)
 		}
 
 		if(inputType == 0) {
-			test = input % 2;
+			test = (int) charInput % 2;
 			if(test == 1) {
 				printf("You entered an odd number\n");
 			}
@@ -38,11 +35,11 @@ int main(void)
 		}
 		else if(inputType == 2) {
 			charOutput = charInput + 32;
-			printf("The lower case of that letter is %c", charOutput);
+			printf("The lower case of that letter is %c\n", charOutput);
 		}
 		else if(inputType == 3) {
 			charOutput = charInput - 32;
-			printf("The upper case of that letter is %c", charOutput);
+			printf("The upper case of that letter is %c\n", charOutput);
 		}
 
 
@@ -59,4 +56,5 @@ int main(void)
 
 		*/
 	}
+	while(yesNo != 0);
 }
