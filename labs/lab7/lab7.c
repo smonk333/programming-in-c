@@ -20,7 +20,7 @@ int main(void)
 	// initialize array2
 
 	for (i = 0; i <= 19; ++i){
-		array2[i] = rand() % 51;
+		array2[i] = rand() % ((50 - 1 + 1) + 1);
 	}
 
 	for (i = 0; i<= 19; ++i){
