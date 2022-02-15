@@ -3,35 +3,35 @@
 
 int main(void)
 {
-	int array1[20], array2[20], i, j, max1 = 0, max2 = 0, secondMax1 = 0, secondMax2 = 0;
+	int array1[20], array2[20], i, j, max1 = 0, max2 = 0, secondMax1 = 0, secondMax2 = 0, product = 0;
 
 	// initialize array1
 
 	printf("Enter 20 integers to initialize array1: ");
 
-	for (i = 0; i <= 19; ++i){
+	for (i = 0; i < 20; ++i){
 		scanf("%i", &array1[i]);
 	}
 
 	printf("\narray1:\n");
 
-	for (i = 0; i<= 19; ++i){
+	for (i = 0; i< 20; ++i){
 		printf("%i\n", array1[i]);
 	}
 
 	// initialize array2
 
-	for (i = 0; i <= 19; ++i){
+	for (i = 0; i < 20; ++i){
 		array2[i] = rand() % 50 + 1;
 	}
 
 	printf("\narray2:\n");
 
-	for (i = 0; i <= 19; ++i){
+	for (i = 0; i < 20; ++i){
 		printf("%i\n", array2[i]);
 	}
 
-	for (i = 0, j = 0; i <= 19 && j <= 19; ++i, ++j){
+	for (i = 0, j = 0; i < 20 && j < 20; ++i, ++j){
 
 		if(array1[i] > max1) {
             secondMax1 = max1;
@@ -57,5 +57,12 @@ int main(void)
 
 	}
 
-	printf("\n%i\n%i", secondMax1, secondMax2);
+	for (i = 0; i < 20; ++i){
+    	product += array1[i] * array2[i];
+	}
+
+	printf("\nsecond highest from array1: %i\nsecond highest from array2: %i\n", secondMax1, secondMax2);
+	printf("\ninner product is: %i", product);
+
+	return 0;
 }
