@@ -1,0 +1,16 @@
+NAME: Garrett Boling
+
+
+1) What is the cause of the seg fault in the program called example.c?
+
+2) What line in broken.c did the program seg fault on?
+
+3) What was the value of the variable "count" at the time of the seg fault?
+
+4) What was the value of the variable "i" at the time of the seg fault?
+
+5) What was the value of the variable "search" at the time of the seg fault?
+
+6) What are the values in the "table" array?
+
+7) what do you think the bug is?
