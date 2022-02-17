@@ -1,16 +1,16 @@
 NAME: Garrett Boling
 
 
-1) What is the cause of the seg fault in the program called example.c?
+1) What is the cause of the seg fault in the program called example.c? - the program broke out of the array table[]
 
-2) What line in broken.c did the program seg fault on?
+2) What line in broken.c did the program seg fault on? - line 28
 
-3) What was the value of the variable "count" at the time of the seg fault?
+3) What was the value of the variable "count" at the time of the seg fault? - 10
 
-4) What was the value of the variable "i" at the time of the seg fault?
+4) What was the value of the variable "i" at the time of the seg fault? - 277
 
-5) What was the value of the variable "search" at the time of the seg fault?
+5) What was the value of the variable "search" at the time of the seg fault? - 1
 
 6) What are the values in the "table" array?
 
-7) what do you think the bug is?
+7) what do you think the bug is? - on line 28, there is no check to prevent the program from falling off the right end of the array table[]. it continues to iterate through the while loop so long as there's not an 11 in the array or count is never less than i, and blow through the end of the array, which only contains 10 values. this can be fixed by changing the while loop to a for loop, since we know how many times the loop needs to iterate, and that's the most logical kind of loop to use when you know how many times you want to run a set of instructions.
