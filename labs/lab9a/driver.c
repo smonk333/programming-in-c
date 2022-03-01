@@ -11,18 +11,18 @@ int main(void)
 	printf("Enter 20 integers to initialize arr1:\n");
 	initWithInput(arr1);
 
-	printf("\n\nInitializing arr2...\n\narr2:\n");
+	printf("\nInitializing arr2...\n");
 	initWithRandom(arr2);
 
 	product = findInnerProduct(arr1, arr2);
 
-	printf("\n\narr1:\n");
+	printf("\narr1:\n");
 
 	for(i = 0; i < ASIZE; ++i){
 		printf("%i\n", arr1[i]);
 	}
 	
-	printf("\n\narr1:\n");
+	printf("\narr2:\n");
 	
 	for(i = 0; i < ASIZE; ++i){
 		printf("%i\n", arr2[i]);
