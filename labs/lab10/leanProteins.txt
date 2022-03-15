@@ -1,9 +1,0 @@
-chicken                        4oz   196   35.10  0.00  5.10
-beef_ground                    4oz   171   28.50  0.00  5.10
-beef_top_sirloin               4oz   229   34.40  0.00  9.10
-egg                              1    75    6.30  0.60  5.00
-lobster                        4oz   111   23.20  1.50  0.70
-protein_powder             2scoops   180   35.00  4.00  3.00
-salmon                         4oz   206   28.80  0.00  9.20
-shrimp                         4oz   120   23.00  1.00  2.00
-turkey_breast                  4oz   178   33.90  0.00  3.70
