@@ -5,28 +5,28 @@ int processLED(int);
 int processLumens();
 
 int main(void){
-	int highestAvg = 0, month, day, year, i = 1, current, highestTrack, bubble;
+	int month, day, year, m, n, i = 1, k, max = 0;
 
 	scanf("%i%i%i", &month, &day, &year);
-	printf("Test date: %i/%i/%i\nLED Lumens\n", month, day, year);
+	printf("Test date: %d/%d/%d\nLED Lumens\n", month, day, year);
 
 	do{
-		fscanf(stdin, "%i", &current);
+		fscanf(stdin, "%d", &n);
 		if(feof(stdin)) break;
 		printf("%5d", i);
-		bubble = processLED(current);
-		if(bubble > highestAvg){
-			highestAvg = bubble;
-			highestTrack = i;
-		}
-		i++;
+		m = processLED(n);
+		if(m > max){
+			max = m;
+			k = i;
+	}
+	i++;
 }while(1);
 
-printf("LED bulb %i has the highest average reading of %i lumens", highestTrack, highestAvg);
+printf("LED bulb %d has the highest average reading of %d lumens\n", k, max);
 }
 
 int processLED(int n){
-	int total = 0, dat[n], ret;
+	int dat[n], ret;
 
 	for(int count = 0; count < n; count++){
 		scanf("%d", &dat[count]);
