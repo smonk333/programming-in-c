@@ -1,6 +1,1 @@
-#include<stdio.h>
-
-
-int main(void)  {
-  
-}
+#include <stdio.h>
