@@ -11,4 +11,4 @@ lab12: $(OBJ)
 
 clean:
 	rm -f *.o
-	rm -f *.exe
+	rm -f *.out
