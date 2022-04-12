@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I.
 DEPS = defs.h
-OBJ = *.o
+OBJ = arrayProcessing.c lab12.c
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
