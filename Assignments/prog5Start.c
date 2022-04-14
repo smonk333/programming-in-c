@@ -1,20 +1,20 @@
 /*
 Program:     prog5
 Description: Process and gather statistics on bulb readings
-Author:      ?
-Date:        ?
+Author:      Garrett Boling
+Date:        4/14/22
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
    // prototypes
-   int loadBulbs(int lum[], int max);
-   void printBulbs(int lum[], int n);
-   int minReading(int lum[], int n);
-   int maxReading(int lum[], int n);
-   int averageReading(int lum[], int n);
-   int suspectCount(int lum[], int n, int average, float pct);
+   int loadBulbs(int *lum, int max);
+   void printBulbs(int *lum, int n);
+   int minReading(int *lum, int n);
+   int maxReading(int *lum, int n);
+   int averageReading(int *lum, int n);
+   int suspectCount(int *lum, int n, int average, float pct);
    void printEquals();
 
 int main(int argc, char *argv[]) {
@@ -22,29 +22,31 @@ int main(int argc, char *argv[]) {
    const int MAX_READINGS = 200;
 
    // variables
-   FILE *in;
    int readings[MAX_READINGS];
    int num_readings;
    int min, max, avg, suspect;
    float pct;
 
-   // make sure cli arguments are useable
-   if(argc > 2){
-     printf("Too many arguments supplied, exiting.\n");
-     exit(1);
-   }
+   // pointers
+  int *readPtr = &readings[0];
+  FILE *input;
 
-   // read from the filestream
-     in = fopen(argv[1], "r");
+  // confirm if args are viable
+  if(argc > 2){
+    printf("Too many arguments supplied, exiting.\n");
+    exit(1);
+  }
 
-     if (in == NULL) {
-       fprintf(stderr, "File open error. Exiting program\n");
-       exit(1);
-     }
+  // open file if it passes the initial check, then check to see if the file exists
+  input = fopen(argv[1], "r");
 
+  if(input == NULL) {
+    fprintf(stderr, "File open error, exiting program\n");
+    exit(1);
+  }
    // read percentage and readings and print readings
-   fscanf(in, "%f", &pct);
-   num_readings = loadBulbs(readings, MAX_READINGS);
+   scanf("%f", &pct);
+   num_readings = loadBulbs(readPtr, MAX_READINGS);
    printBulbs(readings, num_readings);
 
    // gather statistics
@@ -68,7 +70,7 @@ int main(int argc, char *argv[]) {
    return 0;
 }
 
-int loadBulbs(int lum[], int max) {
+int loadBulbs(int *lum, int max) {
 /*    Read bulb readings and place in array
       Exit if too many readings for array
       Parameters: lum - readings arrray
@@ -83,13 +85,13 @@ int loadBulbs(int lum[], int max) {
          printf("\nMore than %d readings!\n\n", max);
          exit(1);
       }
-      lum[i] = reading;      // place in array
+      *(lum + i) = reading;      // place in array
       i++;
    }
    return i;                 // return count
 }
 
-void printBulbs(int lum[], int n) {
+void printBulbs(int *lum, int n) {
 /*    Print bulb readings 10 per line preceed by headings
       Parameters: lum - readings array
                   n - number of elements in arrray
@@ -105,12 +107,12 @@ void printBulbs(int lum[], int n) {
    for (i = 0; i < n; i++) {
       if (i % 10 == 0 && i != 0)
          printf("\n");
-      printf("%3d ", lum[i]);
+      printf("%3d ", *(lum + i));
    }
    printf("\n");
 }
 
-int minReading(int lum[], int n) {
+int minReading(int *lum, int n) {
 /*    Determine minimum reading
       Parameters: lum - readings array
                   n - number of elements in arrray
@@ -118,14 +120,14 @@ int minReading(int lum[], int n) {
 */
    int i, min;
 
-   min = lum[0];
+   min = *lum;
    for (i = 1; i < n; i++)
-      if (lum[i] < min)
-         min = lum[i];
+      if (*(lum + i) < min)
+         min = *(lum + i);
    return min;
 }
 
-int maxReading(int lum[], int n) {
+int maxReading(int *lum, int n) {
 /*    Determine maximum reading
       Parameters: lum - readings array
                   n - number of elements in arrray
@@ -133,14 +135,14 @@ int maxReading(int lum[], int n) {
 */
    int i, max;
 
-   max = lum[0];
+   max = *lum;
    for (i = 1; i < n; i++)
-      if (lum[i] > max)
-         max = lum[i];
+      if (*(lum + i) > max)
+         max = *(lum + i);
    return max;
 }
 
-int averageReading(int lum[], int n) {
+int averageReading(int *lum, int n) {
 /*    Determine average reading
       Parameters: lum - readings array
                   n - number of elements in arrray
@@ -149,12 +151,12 @@ int averageReading(int lum[], int n) {
    int i, total = 0, avg = 0;
 
    for (i = 0; i < n; i++)
-      total += lum[i];
+      total += *(lum + i);
    avg = total / n;
    return avg;
 }
 
-int suspectCount(int lum[], int n, int average, float pct) {
+int suspectCount(int *lum, int n, int average, float pct) {
 /*    Determine count of readings outside range
       Parameters: lum - readings array
                   n - number of elements in arrray
@@ -172,7 +174,7 @@ int suspectCount(int lum[], int n, int average, float pct) {
 
    // count readings outside range
    for (i = 0; i < n; i++)
-      if (lum[i] < lower || lum[i] > upper)
+      if (*(lum + i) < lower || *(lum + i) > upper)
          count++;
 
    return count;
