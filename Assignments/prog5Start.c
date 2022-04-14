@@ -36,6 +36,10 @@ int main(int argc, char *argv[]) {
     printf("Too many arguments supplied, exiting.\n");
     exit(1);
   }
+  if(argc < 2){
+    printf("Too few arguments supplied, exiting.\n");
+    exit(1);
+  }
 
   // open file if it passes the initial check, then check to see if the file exists
   input = fopen(argv[1], "r");
