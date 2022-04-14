@@ -9,7 +9,7 @@ Date:        4/14/22
 #include <stdlib.h>
 
    // prototypes
-   int loadBulbs(int *lum, int max);
+   int loadBulbs(int *lum, const int *maxPtr, char *filePtr);
    void printBulbs(int *lum, int n);
    int minReading(int *lum, int n);
    int maxReading(int *lum, int n);
@@ -26,9 +26,13 @@ int main(int argc, char *argv[]) {
    int num_readings;
    int min, max, avg, suspect;
    float pct;
+   char filename = *argv[2];
+
 
    // pointers
   int *readPtr = &readings[0];
+  char *filePtr = &filename;
+  const int *maxPtr = &MAX_READINGS;
   FILE *input;
 
   // confirm if args are viable
@@ -42,7 +46,7 @@ int main(int argc, char *argv[]) {
   }
 
   // open file if it passes the initial check, then check to see if the file exists
-  input = fopen(argv[1], "r");
+  input = fopen(argv[2], "r");
 
   if(input == NULL) {
     fprintf(stderr, "File open error, exiting program\n");
@@ -50,7 +54,7 @@ int main(int argc, char *argv[]) {
   }
    // read percentage and readings and print readings
    scanf("%f", &pct);
-   num_readings = loadBulbs(readPtr, MAX_READINGS);
+   num_readings = loadBulbs(readPtr, maxPtr, filePtr);
    printBulbs(readings, num_readings);
 
    // gather statistics
@@ -74,7 +78,7 @@ int main(int argc, char *argv[]) {
    return 0;
 }
 
-int loadBulbs(int *lum, int max) {
+int loadBulbs(int *lum, const int *maxPtr, char *filePtr) {
 /*    Read bulb readings and place in array
       Exit if too many readings for array
       Parameters: lum - readings arrray
@@ -85,8 +89,8 @@ int loadBulbs(int *lum, int max) {
 
    // While able to read a reading
    while (scanf("%d", &reading) == 1) {
-      if (i >= max) {         // see if it will fit
-         printf("\nMore than %d readings!\n\n", max);
+      if (i >= *maxPtr) {         // see if it will fit
+         printf("\nMore than %d readings!\n\n", *maxPtr);
          exit(1);
       }
       *(lum + i) = reading;      // place in array
