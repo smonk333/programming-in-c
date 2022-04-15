@@ -9,7 +9,7 @@ Date:        4/14/22
 #include <stdlib.h>
 
    // prototypes
-   int loadBulbs(int *lum, const int *maxPtr, char *filePtr);
+   void loadBulbs(int *lum, int max, char *filePtr, float *pct, int *i);
    void printBulbs(int *lum, int n);
    int minReading(int *lum, int n);
    int maxReading(int *lum, int n);
@@ -23,38 +23,23 @@ int main(int argc, char *argv[]) {
 
    // variables
    int readings[MAX_READINGS];
-   int num_readings;
+   int num_readings = 0;
    int min, max, avg, suspect;
    float pct;
-   char filename = *argv[2];
+
 
 
    // pointers
-  int *readPtr = &readings[0];
-  char *filePtr = &filename;
-  const int *maxPtr = &MAX_READINGS;
-  FILE *input;
 
   // confirm if args are viable
-  if(argc > 2){
-    printf("Too many arguments supplied, exiting.\n");
-    exit(1);
-  }
-  if(argc < 2){
-    printf("Too few arguments supplied, exiting.\n");
-    exit(1);
+  if(argc != 2) {
+    fprintf(stderr, "Usage: ./prog5 filename.txt\n");
   }
 
-  // open file if it passes the initial check, then check to see if the file exists
-  input = fopen(argv[2], "r");
 
-  if(input == NULL) {
-    fprintf(stderr, "File open error, exiting program\n");
-    exit(1);
-  }
    // read percentage and readings and print readings
-   scanf("%f", &pct);
-   num_readings = loadBulbs(readPtr, maxPtr, filePtr);
+
+   loadBulbs(readings, MAX_READINGS, argv[1], &pct, &num_readings);
    printBulbs(readings, num_readings);
 
    // gather statistics
@@ -78,25 +63,32 @@ int main(int argc, char *argv[]) {
    return 0;
 }
 
-int loadBulbs(int *lum, const int *maxPtr, char *filePtr) {
+void loadBulbs(int *lum, int max, char *filePtr, float *pct, int *i) {
 /*    Read bulb readings and place in array
       Exit if too many readings for array
       Parameters: lum - readings arrray
                   max - maximum elements in array
       Return:     Number of readings placed in array
 */
-   int i = 0, reading;
+  FILE *fp;
+  int reading;
 
    // While able to read a reading
-   while (scanf("%d", &reading) == 1) {
-      if (i >= *maxPtr) {         // see if it will fit
-         printf("\nMore than %d readings!\n\n", *maxPtr);
+   if((fp = fopen(filePtr, "r")) == NULL){
+     fprintf(stderr, "File %s not found", filePtr);
+     exit(2);
+   }
+
+   fscanf(fp, "%f", pct);
+
+   while (fscanf(fp, "%d", &reading) == 1) {
+      if (*i >= max) {         // see if it will fit
+         printf("\nMore than %d readings!\n\n", max);
          exit(1);
       }
-      *(lum + i) = reading;      // place in array
-      i++;
-   }
-   return i;                 // return count
+      *(lum + *i) = reading;      // place in array
+      (*i)++;
+   }                 // return count
 }
 
 void printBulbs(int *lum, int n) {
