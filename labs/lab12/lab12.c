@@ -35,6 +35,6 @@ int main(int argc, char *argv[]) {
   printArray(size, arr1);
   fclose(inFile);
   free(arr1);
-  
+
   return 0;
 }
