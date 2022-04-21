@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 				break;
 			case 5:
 				head = read_from_file();
-				//HINT: use add_new_batter in this function
 				break;
 			default:
 				printf("Invalid command\n");
