@@ -22,7 +22,7 @@ BATTER read_from_file() {
       head = add_new_batter(head, firstname, lastname, hits, atbats);
     }
     fclose(inFile);
-    delete_batter(head, firstname, lastname);
+    delete_batter(head, firstname, lastname); //because I genuinely can't figure out how else to mitigate the file from placing the final element from the read file in the linked list twice.
   }
   return head;
 }
