@@ -4,23 +4,25 @@ BATTER read_from_file() {
   char fileNameStore[100] = "";
   char firstname[20] ="", lastname[20] = "";
   int atbats, hits;
+  float average;
   FILE *inFile;
-  BATTER readHead = NULL;
+  BATTER head = NULL;
 
   printf("Enter the name of the file you would like to read from: ");
   scanf("%s", fileNameStore);
   inFile = fopen(fileNameStore, "r");
 
-  if(fileNameStore == NULL) {
+  if(inFile == NULL) {
     fprintf(stderr, "File open error, exiting");
     exit(1);
   }
   else {
     while(!feof(inFile)) {
-      fscanf(inFile, "%s %s %i %i", firstname, lastname, &hits, &atbats);
-      add_new_batter(readHead, firstname, lastname, hits, atbats);
+      fscanf(inFile, "%s %s %d %d %f", firstname, lastname, &hits, &atbats, &average);
+      head = add_new_batter(head, firstname, lastname, hits, atbats);
     }
     fclose(inFile);
+    delete_batter(head, firstname, lastname);
   }
-  return readHead;
+  return head;
 }

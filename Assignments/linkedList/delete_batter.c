@@ -10,7 +10,6 @@ BATTER delete_batter(BATTER head, char *firstname, char *lastname) {
 	else if (!strcmp(firstname,head->firstname) && !strcmp(lastname, head->lastname)) {
 		/* we will delete the head */
 		p = head->next;
-		printf("\nDeleting %s %s\n", head->firstname, head->lastname);
 		free(head);
 		head = p;
 	}
@@ -19,7 +18,6 @@ BATTER delete_batter(BATTER head, char *firstname, char *lastname) {
 		p = head;
 		while(p->next != NULL && strcmp(firstname,p->next->firstname)) {
 			p = p->next;
-			printf("\np is now %s %s\n", p->firstname, p->lastname);
 		}
 		if (p->next == NULL) {
 			printf("\nName %s %s not found.\n", firstname, lastname);
@@ -28,7 +26,6 @@ BATTER delete_batter(BATTER head, char *firstname, char *lastname) {
 			/* delete a node in the middle or the end of the list */
 			temp = p->next;
 			p->next = p->next->next;
-			printf("\nDeleting %s %s\n", temp->firstname, temp->lastname);
 			free(temp);
 		}
 	}
