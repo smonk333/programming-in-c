@@ -4,11 +4,7 @@ BATTER add_new_batter(BATTER head, char *firstname, char *lastname, int hits, in
   // When I wrote this program, only God and I knew how it worked. Now it's only God.
 
   BATTER p, new_batter;
-  /*char first[20];
-  char last[20];
-  strncpy(firstname, first, 20);
-  strncpy(lastname, last, 20);
-  */
+
   new_batter = (BATTER) malloc(sizeof(struct batter));
   new_batter->next = NULL;
   strncpy(new_batter->firstname, firstname, 20);
