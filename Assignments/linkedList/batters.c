@@ -46,11 +46,10 @@ int main(int argc, char *argv[])
 				printf("\n");
 				break;
 			case 4:
-				//save_to_file(head);
-				//HINT: use print_list_of_batters in this function
+				save_to_file(head);
 				break;
 			case 5:
-				//head = read_from_file();
+				head = read_from_file();
 				//HINT: use add_new_batter in this function
 				break;
 			default:

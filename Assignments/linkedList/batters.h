@@ -16,3 +16,5 @@ typedef struct batter *BATTER;
 BATTER add_new_batter(BATTER head, char *firstname, char *lastname, int hits, int atbats);
 void print_list_of_batters(FILE *fp, BATTER head);
 BATTER delete_batter(BATTER head, char *firstname, char *lastname);
+void save_to_file(BATTER head);
+BATTER read_from_file();
