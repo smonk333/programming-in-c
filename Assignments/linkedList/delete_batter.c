@@ -1,3 +1,5 @@
+//delete_batter.c
+
 #include "batters.h"
 
 BATTER delete_batter(BATTER head, char *firstname, char *lastname) {

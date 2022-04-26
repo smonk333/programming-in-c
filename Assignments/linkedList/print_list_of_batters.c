@@ -1,3 +1,5 @@
+//print_list_of_batters.c
+
 #include "batters.h"
 
 void print_list_of_batters(FILE *fp, BATTER head)

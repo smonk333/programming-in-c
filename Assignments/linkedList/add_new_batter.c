@@ -1,3 +1,5 @@
+//add_new_batter.c
+
 #include "batters.h"
 
 BATTER add_new_batter(BATTER head, char *firstname, char *lastname, int hits, int atbats) {
